@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Khoo Chun Pin"/>
+
+	<title>Task 2.2 D3 Drawing with Data - Bar Chart Page</title>
+	<link rel="stylesheet" href="stylesheet.css">
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+
+<body>
+	<nav>
+		<a href="../../main.html">Home</a>
+		<a href="Lab 2.1 D3 Drawing with Data - Binding.html">Lab 2-1</a>
+		<a href="Lab 2.2 D3 Drawing with Data - Bar Chart.html">Lab 2-2</a>
+		<a href="Lab 2.3 D3 Drawing with Data - Scatter Plot.html">Lab 2-3</a>
+		<a href="Lab 2.4 D3 Loading Data from CSV.html">Lab 2-4</a>
+	</nav>
+	<hr>
+
+	<h1>Drawing with Data</h1>
+	
+	<script>
+		var w = 500;
+		var h = 150;
+		var barPadding = 1;
+
+		//var dataset = [14,5,26,23,9];
+		var dataset = [14,5,26,23,9,10,28,3,2,13];
+		
+		var svg = d3.select("body")
+					.append("svg")
+					.attr("width", w)
+					.attr("height", h)
+					.attr("fill", "rgb(106, 90, 205)");
+
+		svg.selectAll("rect")
+			.data(dataset)
+			.enter()
+			.append("rect")
+			.attr("x", function(d, i){//x-coordinate
+				return i * (w / dataset.length);
+			})
+			.attr("y", function(d){//y-coordinate
+				return h - (d*4);
+			})
+			.attr("width", function(d){//width of the bar
+				return w/(dataset.length-barPadding);
+			})
+			.attr("height", function(d){//height of the bar
+				return d*4;
+			});	
+
+		svg.selectAll("text")
+			.data(dataset)
+			.enter()
+			.append("text")
+			.text(function(d){
+				return d;
+			})
+			.attr("fill", "black")
+			.attr("x", function(d, i){//x-coordinate
+				return i * (w / dataset.length) + 20;
+			})
+			.attr("y", function(d){//y-coordinate
+				return h - (d*4);
+			});
+			
+
+
+	</script>
+	
+
+	<br>
+	<footer style="color: grey;">COS30045 Data Visualisation <br> Khoo Chun Pin</footer>
+
+</body>
+</html>

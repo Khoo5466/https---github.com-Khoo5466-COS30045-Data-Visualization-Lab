@@ -1,0 +1,54 @@
+body {
+    background-color: lightblue;
+}
+
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007BFF; /* Blue background color */
+    color: white; /* Text color */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid transparent; /* Optional border */
+    font-family: Arial, sans-serif; /* Font style */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #fff; /* Optional border color change on hover */
+    color: white; /* Ensure text color remains white on hover */
+}
+
+nav a:active {
+    background-color: #003f7f; /* Even darker blue on click */
+    border-color: #fff; /* Optional border color change on click */
+}
+
+hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Thickness of the line */
+    background-color: #007BFF; /* Blue color */
+    margin: 20px 0; /* Space above and below the line */
+    border-radius: 5px; /* Slightly round the edges */
+}
+  
+h1 {
+    color: violet;
+}
+  
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+/* Styling for active nav button */
+nav a.active {
+    background-color: #4682b4; /* Shaded background color */
+    color: #ffffff; /* White text color */
+    border-radius: 8px;
+}
+

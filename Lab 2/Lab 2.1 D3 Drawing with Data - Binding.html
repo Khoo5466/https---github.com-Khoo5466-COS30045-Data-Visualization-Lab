@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Khoo Chun Pin"/>
+
+	<title>Task 2.1 D3 Drawing with Data - Binding Page</title>
+	<!--Insert description of exercise  -->
+	<link rel="stylesheet" href="stylesheet.css">
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+
+</head>
+
+<body>
+	<nav>
+		<a href="../../main.html">Home</a>
+		<a href="Lab 2.1 D3 Drawing with Data - Binding.html">Lab 2-1</a>
+		<a href="Lab 2.2 D3 Drawing with Data - Bar Chart.html">Lab 2-2</a>
+		<a href="Lab 2.3 D3 Drawing with Data - Scatter Plot.html">Lab 2-3</a>
+		<a href="Lab 2.4 D3 Loading Data from CSV.html">Lab 2-4</a>
+	</nav>
+	<hr>
+
+	<h1>The D3 Journey starts here...</h1>
+	
+	<script>
+		var dataset = [14,5,26,23,9];
+			d3.select("body").selectAll("p")
+			.data(dataset)
+			.enter()
+			.append("p")
+			.style("color", function(d){
+				if (d>10) {
+					return "red";
+				}
+			})
+			.text(function(d){
+				if (d>10){
+					return "Warning: Joe watched " + d + " cat videos today";
+				}
+				else{
+					return "Joe watched " +d+ " cat videos today.";
+				}
+			});
+	</script>
+	<br>
+	<footer style="color: grey;" >COS30045 Data Visualisation <br> Khoo Chun Pin</footer>
+
+</body>
+</html>
