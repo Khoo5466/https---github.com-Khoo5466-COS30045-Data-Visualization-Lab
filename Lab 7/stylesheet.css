@@ -1,0 +1,84 @@
+body {
+    background-color: lightblue;
+}
+
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007BFF; /* Blue background color */
+    color: white; /* Text color */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid transparent; /* Optional border */
+    font-family: Arial, sans-serif; /* Font style */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #fff; /* Optional border color change on hover */
+    color: white; /* Ensure text color remains white on hover */
+}
+
+nav a:active {
+    background-color: #003f7f; /* Even darker blue on click */
+    border-color: #fff; /* Optional border color change on click */
+}
+
+hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Thickness of the line */
+    background-color: #007BFF; /* Blue color */
+    margin: 20px 0; /* Space above and below the line */
+    border-radius: 5px; /* Slightly round the edges */
+}
+  
+h1 {
+    color: violet;
+}
+  
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+/* Styling for active nav button */
+nav a.active {
+    background-color: #4682b4; /* Shaded background color */
+    color: #ffffff; /* White text color */
+    border-radius: 8px;
+}
+
+button {
+    background-color: #007BFF; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding for the button */
+    margin: 1px;
+    font-size: 16px;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    font-family: Arial, sans-serif; /* Font style */
+}
+
+button#remove {
+    background-color: #dc3545; /* Red background for remove button */
+}
+
+button:hover {
+    background-color: #007BFF; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+button#remove:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+button:active {
+    transform: scale(0.98); /* Slightly smaller on click */
+}
