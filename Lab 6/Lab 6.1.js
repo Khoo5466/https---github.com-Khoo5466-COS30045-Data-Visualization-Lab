@@ -55,13 +55,11 @@ function init(){
                     .text(d);
 
                 d3.select(this)
-                    .transition()
                     .attr("fill", "orange");
             })
             .on("mouseout", function(d){
                 d3.select("#tooltip").remove();
                 d3.select(this)
-                    .transition()
                     .attr("fill", "rgb(106, 90, 205)");
             })
             .transition()  // Animate the update
