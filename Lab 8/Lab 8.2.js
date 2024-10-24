@@ -11,8 +11,8 @@ function init(){
                 .projection(projection);
 
     var color = d3.scaleQuantize()
-                    .range(["rgb(173, 216, 230)", "rgb(135, 206, 235)", "rgb(30, 144, 255)", 
-                        "rgb(65, 105, 225)", "rgb(0, 0, 128)"]);
+                    .range(['rgb(242,240,247)','rgb(203,201,226)',
+                        'rgb(158,154,200)','rgb(117,107,177)','rgb(84,39,143)']);
 
 
     var svg = d3.select("#map")
@@ -26,13 +26,13 @@ function init(){
             d3.max(data, function(d){return d.unemployed;})
         ]);
 
-        d3.json("LGA_VIC.json", function(json){
+        d3.json("https://raw.githubusercontent.com/Khoo5466/https---github.com-Khoo5466-COS30045-Data-Visualization-Lab/refs/heads/main/Lab%208/LGA_VIC.json").then(function(json){
 
             for(var i = 0; i < data.length; i++){
                 var dataState = data[i].LGA;
                 var dataValue = parseFloat(data[i].unemployed);
     
-                for(var j = 0; j < json.features; j++){
+                for(var j = 0; j < json.features.length; j++){
                     var jsonState = json.features[j].properties.LGA_name;
     
                     if(dataState == jsonState){
@@ -56,9 +56,29 @@ function init(){
                         return '#ccc';
                     }
                 });
-        });
-    })
 
-    
+            d3.csv("VIC_city.csv").then(function(data){
+                svg.selectAll("circle")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", function(d){
+                        return projection([d.lon, d.lat])[0];
+                    })
+                    .attr("cy", function(d){
+                        return projection([d.lon, d.lat])[1];
+                    })
+                    .attr("r", 3)
+                    .style("fill", "red")
+                    .style("stroke", "grey")
+                    .style("stroke-width", 0.25)
+                    .style("opacity", 0.75)
+                    .append("title")
+                    .text(function(d){
+                        return d.place + ": Pop. " + formatAsThousands(d.populations);
+                    });
+            });
+        });
+    });   
 }
 window.onload = init;
