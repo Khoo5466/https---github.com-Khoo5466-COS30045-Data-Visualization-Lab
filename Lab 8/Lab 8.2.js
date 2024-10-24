@@ -20,6 +20,17 @@ function init(){
                 .attr("width", w)
                 .attr("height", h);
 
+    var tooltip = d3.select("body")
+                    .append("div")
+                    .attr("class", "tooltip")
+                    .style("position", "absolute")
+                    .style("visibility", "hidden")
+                    .style("background", "white")
+                    .style("border", "1px solid #ccc")
+                    .style("padding", "5px")
+                    .style("border-radius", "3px")
+                    .style("font-size", "12px");
+
     d3.csv("VIC_LGA_unemployment.csv").then(function(data){
         color.domain([
             d3.min(data, function(d){return d.unemployed;}),
@@ -73,9 +84,14 @@ function init(){
                     .style("stroke", "grey")
                     .style("stroke-width", 0.25)
                     .style("opacity", 0.75)
-                    .append("title")
-                    .text(function(d){
-                        return d.place + ": Pop. " + formatAsThousands(d.populations);
+                    .on("mouseover", function(event, d) {
+                        tooltip.style("visibility", "visible")
+                               .html(d.place)
+                               .style("top", (event.pageY - 10) + "px")
+                               .style("left", (event.pageX + 10) + "px");
+                    })
+                    .on("mouseout", function() {
+                        tooltip.style("visibility", "hidden");
                     });
             });
         });
